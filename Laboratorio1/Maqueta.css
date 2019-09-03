@@ -1,0 +1,16 @@
+#contenedor {
+	width: 900px;
+	margin: 0 auto;
+
+}
+#arriba{
+	width: 900px;
+	height: 200px;
+	background:#87CEFA ;
+}
+#cuerpo{
+	width: 900px;
+	height: 200px;
+	background:blue ;
+}
+
