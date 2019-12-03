@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h3>Laboratorio 4</h3>
+	<hr>
+	
+	<input type="button" value="Pregunta1" onclick="llamar1()">
+	<input type="button" value="Pregunta2" onclick="llamar2()"><br>
+
+	<br><div id="contenido">
+		
+	</div>
+<script>
+	function llamar1()
+	{
+		ajax=new XMLHttpRequest();
+		ajax.onreadystatechange=function()
+		{
+		 if(ajax.readyState == 4) { 
+		 	if(ajax.status == 200) { 
+		 	 document.getElementById('contenido').innerHTML=ajax.responseText;
+		 	}
+		 	}	
+		} 
+
+		ajax.open('GET', 'formulario1.html' , true); 
+		ajax.send(); 
+	}
+	function llenar()
+	{
+		ajax=new XMLHttpRequest();
+		ajax.onreadystatechange=function()
+		{
+		 if(ajax.readyState == 4) { 
+		 	if(ajax.status == 200) { 
+		 	 document.getElementById('contenido').innerHTML=ajax.responseText;
+		 	}
+		 	}	
+		} 
+		cadena="txtNombres="+encodeURIComponent(document.getElementById("txtNombres").value)+"&";
+		cadena+="txtApellidos="+encodeURIComponent(document.getElementById("txtApellidos").value)+"&";
+		cadena+="txtCorreo="+encodeURIComponent(document.getElementById("txtCorreo").value)+"&";
+		cadena+="txtPassword="+encodeURIComponent(document.getElementById("txtPassword").value);
+		cadena+="&nocache=" + Math.random();
+		
+		ajax.open('GET', 'insertarD.php?'+cadena, true); 
+		ajax.send(); 
+	}
+
+	function llamar2()
+	{
+		ajax=new XMLHttpRequest();
+		ajax.onreadystatechange=function()
+		{
+		 if(ajax.readyState == 4) { 
+		 	if(ajax.status == 200) { 
+		 	 document.getElementById('contenido').innerHTML=ajax.responseText;
+		 	}
+		 	}	
+		} 
+
+		ajax.open('GET', 'formulario2.html' , true); 
+		ajax.send();
+	}
+	function APLICAR()
+	{
+		var dat = document.getElementById("dato").value;
+		var cam = dat;
+			document.getElementById("resultado").innerHTML=cam;
+			document.getElementById("resultado").style.color="yellow";
+
+
+
+  
+   
+
+	}
+	
+</script>
+
+</body>
+</html>
